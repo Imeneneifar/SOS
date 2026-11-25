@@ -1,0 +1,81 @@
+{
+  "realm": "saferoute",
+  "enabled": true,
+  "displayName": "Safe Route",
+  "registrationAllowed": true,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "roles": {
+    "realm": [
+      {
+        "name": "USER",
+        "description": "Utilisateur citoyen pouvant déclencher et suivre ses alertes SOS"
+      },
+      {
+        "name": "ADMIN",
+        "description": "Administrateur / secours pouvant superviser et résoudre les alertes SOS"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "saferoute-client",
+      "name": "Safe Route Web & API Client",
+      "enabled": true,
+      "publicClient": true,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "protocol": "openid-connect",
+      "redirectUris": [
+        "http://localhost:4200/*",
+        "http://localhost:3000/*",
+        "http://localhost:5173/*",
+        "http://localhost:8080/*",
+        "http://localhost:8084/*"
+      ],
+      "webOrigins": [
+        "+"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "user",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Imen",
+      "lastName": "Citoyen",
+      "email": "user@saferoute.tn",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "user123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "USER"
+      ]
+    },
+    {
+      "username": "admin",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Admin",
+      "lastName": "SafeRoute",
+      "email": "admin@saferoute.tn",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "ADMIN",
+        "USER"
+      ]
+    }
+  ]
+}
